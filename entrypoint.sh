@@ -30,8 +30,8 @@ function installAwsSam(){
 }
 
 function runSam(){
-	if [ "${INPUT_GITHUB_PACKAGE_REGISTRY_TOKEN}" == "" ]; then
-		echo "//npm.pkg.github.com/:_authToken=${INPUT_GITHUB_PACKAGE_REGISTRY_TOKEN}" > ~/.npmrc
+	if [ "${INPUT_GITHUB_PACKAGE_REGISTRY_TOKEN}" != "" ]; then
+		echo "//npm.pkg.github.com/:_authToken=${INPUT_GITHUB_PACKAGE_REGISTRY_TOKEN}" >> ~/.npmrc
 	fi
 
 	echo "Run sam ${INPUT_SAM_COMMAND}"
